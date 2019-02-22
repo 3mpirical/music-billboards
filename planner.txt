@@ -7,15 +7,10 @@ songs <--> billboards (many to many)
 artist --> song (one to many)
 
 
-
+-----------------------------------------------------------------
 ### route nesting ###
 
 root "pages#home"
-
-get "billboards/:id/songs" => "songs#billboard_index"
-
-
-get "billboards/:id/songs/:id" => "songs#billboard_show" (can render the artist show page)
 
 resources :artist do 
     resources :songs
@@ -23,9 +18,10 @@ end
 
 resources :billboards
 
+*** from billboard show page, link_to song show page
+*** from song show page, link_to billboard show page (make a list of billboards for songs)
 
-
-
+-----------------------------------------------------------------
 Question: How do I connect my songs to artists and billboards?
     First: create a song via artist nested route
     Second: send back a list of billboards with links to a billboard/:id/songs/new route?
@@ -48,11 +44,13 @@ NAVBAR ROUTES TO:
     billboard#index
 
 
+-----------------------------------------------------------------
 MODELS: 
 
-rails g model Artist name started  
+rails g model Artist name started avatar
 Artist.create(
     name: ,
+    avatar: ,
     started: ,
     genre_id: ,
     songs: has_many, dependent: :destroy
@@ -67,7 +65,7 @@ Song.create(
 )
 
 rails g model SongSlot name billboard:belongs_to song:belongs_to
-Genre.create(
+SongSlot.create(
     name: ,
     songs: has_many,
     artists: has_many,
@@ -79,3 +77,15 @@ Billboard.create(
     song_ids: ,
     songs: has_many_through_genres,
 )
+
+
+##### PART OF FORM FOR MANY BILLBOARDS ##### 
+   <div>
+        <p>Billboards: </p>
+        <% @billboards.each_with_index() do |billboard, index| %>
+            <div class="field">
+                <%= label_tag "bill_#{billboard.id}", "#{billboard.name}" %>
+                <%= check_box_tag "bill_#{billboard.id}" %> 
+            </div>
+        <% end %>
+    </div>
