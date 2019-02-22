@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pages/home'
   get 'billboards/index'
   get 'billboards/show'
   get 'billboards/edit'
