@@ -1,2 +1,16 @@
-<h1>Artists#show</h1>
-<p>Find me in app/views/artists/show.html.erb</p>
+<%= render "layouts/navbar" %>
+
+
+<img src="<%= @artist.avatar %>" alt="artist picture">
+<h1>Artist <%= @artist.name %></h1>
+<%= link_to "delete", artist_path(@artist.id), method: :delete %>
+<%= link_to "edit", edit_artist_path(@artist.id) %>
+<%= link_to "add songs", new_artist_song_path(@artist.id) %>
+
+<h4>Started: <%= @artist.started %></h4>
+<ul>
+    <% @artist.songs.each() do |song| %>
+        <li> <%= song.name %> (<%= link_to "info", artist_song_path(@artist.id, song.id) %>)</li>
+        
+    <% end %>
+</ul>

@@ -1,2 +1,23 @@
-<h1>Artists#new</h1>
-<p>Find me in app/views/artists/new.html.erb</p>
+<%= render "layouts/navbar" %>
+<h1>Artist Sign Up</h1>
+
+<%= form_with(model: @artist, local: true, class: "") do |f| %>
+
+    <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, required: true, placeholder: "name...", autofocus: true %>
+    </div>
+
+    <div class="field">
+        <%= f.label :avatar %>
+        <%= f.text_field :avatar, required: true, placeholder: "avatar url" %>
+    </div>
+
+    <div class="field">
+        <%= f.label :started %>
+        <%= f.text_field :started, required: true, placeholder: "year you started" %>
+    </div>
+
+    <%= f.submit nil, class: "" %>
+
+<% end %>

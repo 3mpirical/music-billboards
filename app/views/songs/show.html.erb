@@ -1,0 +1,14 @@
+<%= render "layouts/navbar" %>
+
+<h1>Selected Song <%= @song.name %></h1>
+<h3>By: <%= @artist.name %></h3>
+<p>Song Length: <%= @song.length %></p>
+<%= link_to "edit", edit_artist_song_path(@artist.id, @song.id) %>
+<%= link_to "delete", artist_song_path(@artist.id, @song.id), method: :delete %>
+<hr>
+<h3>Belongs To Billboards: </h3>
+<ol>
+    <% @song.billboards.each() do |billboard| %>
+        <li> <%= billboard.name %>  <%= link_to "info", billboard_path(billboard.id) %> </li>
+    <% end %>
+</ol>
