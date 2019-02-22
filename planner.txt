@@ -1,0 +1,81 @@
+////////////////   PLANNER FILE   ////////////////
+
+*** songs belong to one artist and many billboards
+*** billboards has many notes
+
+songs <--> billboards (many to many)
+artist --> song (one to many)
+
+
+
+### route nesting ###
+
+root "pages#home"
+
+get "billboards/:id/songs" => "songs#billboard_index"
+
+
+get "billboards/:id/songs/:id" => "songs#billboard_show" (can render the artist show page)
+
+resources :artist do 
+    resources :songs
+end
+
+resources :billboards
+
+
+
+
+Question: How do I connect my songs to artists and billboards?
+    First: create a song via artist nested route
+    Second: send back a list of billboards with links to a billboard/:id/songs/new route?
+                                                           
+Artist Routes
+    artist/:id/song/:id
+    FROM THE SHOW ROUTE:
+        Make a checkbox hack that will display/remove a form which can be used to select billboards from a list of all billboards via checkboxes.
+
+Billboard Routes
+    billboards/:id/edit
+    FROM THE BILLBOARD EDIT/NEW ROUTE
+        we can make a form of checkboxes from a list of all songs, the same as the list of billboards in the songs show route.
+
+
+
+NAVBAR ROUTES TO:
+    pages#home
+    artist#index
+    billboard#index
+
+
+MODELS: 
+
+rails g model Artist name started  
+Artist.create(
+    name: ,
+    started: ,
+    genre_id: ,
+    songs: has_many, dependent: :destroy
+)
+
+rails g model Song name length artist:belongs_to
+Song.create(
+    name: ,
+    length: ,
+    artist_id: ,
+    genre_id: ,
+)
+
+rails g model SongSlot name billboard:belongs_to song:belongs_to
+Genre.create(
+    name: ,
+    songs: has_many,
+    artists: has_many,
+)
+
+rails g model Billboard name
+Billboard.create(
+    name: ,
+    song_ids: ,
+    songs: has_many_through_genres,
+)
