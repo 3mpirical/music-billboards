@@ -26,6 +26,12 @@ Billboard.create(
 Billboard.create(
     name: "TOP 90s"
 )
+Billboard.create(
+    name: "TOP 200"
+)
+Billboard.create(
+    name: "TOP 50"
+)
 
 Artist.create(
     avatar: Faker::Avatar.image(),
@@ -52,12 +58,27 @@ Artist.create(
     name: "Skrillix",
     started: "2009"
 )
+Artist.create(
+    avatar: Faker::Avatar.image(),
+    name: "Dahli Llamma",
+    started: "2009"
+)
+Artist.create(
+    avatar: Faker::Avatar.image(),
+    name: "Lil free",
+    started: "2009"
+)
+Artist.create(
+    avatar: Faker::Avatar.image(),
+    name: "Tyra Spanks",
+    started: "2009"
+)
 
 Artist.all().each() {|artist|
-    for i in (1..3)
+    for i in (1..10)
         Song.create(
             name: Faker::Music.album,
-            length: "45 mins",
+            length: "2 mins",
             artist_id: artist.id
         )
     end
@@ -65,10 +86,12 @@ Artist.all().each() {|artist|
 
 Billboard.all().each() {|billboard|
     Song.all().each() { |song|
-        SongSlot.create(
-            billboard_id: billboard.id,
-            song_id: song.id,
-        )
+        if(Random.rand(4).to_i == 0)
+            SongSlot.create(
+                billboard_id: billboard.id,
+                song_id: song.id,
+            )
+        end
     }
 }
 

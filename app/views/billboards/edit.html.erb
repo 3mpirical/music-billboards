@@ -1,2 +1,25 @@
-<h1>Billboards#edit</h1>
-<p>Find me in app/views/billboards/edit.html.erb</p>
+<%= render "layouts/navbar" %>
+
+<h1>Edit Billboard</h1>
+
+<%= form_tag({controller: :billboards, action: :update}, method: :put, local: true, class: "") do %>
+
+    <div class="field">
+        <%= label_tag :name %>
+        <%= text_field_tag :name, nil, placeholder: "name", autofocus: true, required: true %>
+    </div>
+
+    <p>Songs: </p>
+    <ul>
+        <% @songs.each_with_index() do |song, index| %>
+            <li class="field">
+                    <%= check_box_tag "song_id[]", "#{song.id}" %> 
+                    <%= label_tag "song_id[]", "#{song.name} by: #{song.artist.name}" %>
+                </li>
+        <% end %>
+    </ul>
+
+
+    <%= submit_tag nil, class: "" %>
+
+<% end %>

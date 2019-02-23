@@ -79,13 +79,12 @@ Billboard.create(
 )
 
 
-##### PART OF FORM FOR MANY BILLBOARDS ##### 
-   <div>
-        <p>Billboards: </p>
-        <% @billboards.each_with_index() do |billboard, index| %>
-            <div class="field">
-                <%= label_tag "bill_#{billboard.id}", "#{billboard.name}" %>
-                <%= check_box_tag "bill_#{billboard.id}" %> 
-            </div>
-        <% end %>
+<div>
+<p>Songs: </p>
+<% @songs.each_with_index() do |song, index| %>
+    <div class="field">
+        <%= label_tag "song_#{song.id}", "#{index}) #{song.name}" %>
+        <%= check_box_tag "song_#{song.id}" %> 
     </div>
+<% end %>
+</div>

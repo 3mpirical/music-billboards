@@ -2,7 +2,7 @@
 
 <h1>Edit Song</h1>
 
-<%= form_tag("/artists/#{@artist.id}/songs", model: @song, local: true, class: "") do %>
+<%= form_tag("/artists/#{@artist.id}/songs/#{@song.id}", method: :put, model: @song, local: true, class: "") do %>
 
     <div class="field">
         <%= label_tag :name %>

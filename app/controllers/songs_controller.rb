@@ -1,8 +1,9 @@
 class SongsController < ApplicationController
     before_action :get_song, only: [:show, :edit, :update, :destroy]
-    before_action :get_artist, only: [:show, :edit, :new, :create, :update, :destroy]
+    before_action :get_artist, only: [ :edit, :new, :create, :update, :destroy]
 
     def show
+        @artist = @song.artist
     end
 
     def new
@@ -26,16 +27,6 @@ class SongsController < ApplicationController
             render(:new)
         end
     end
-
-    # def add_to_billboard
-    #     params.each_pair() {|key, value|
-    #         sliced_key = key.slice(0..4)
-    #         puts sliced_key
-    #         if(sliced_key == "bill_")
-    #             billboard_id = key.slice(5..key.length - 1)
-    #         end
-    #     }
-    # end
 
     def update
         result = @song.update(

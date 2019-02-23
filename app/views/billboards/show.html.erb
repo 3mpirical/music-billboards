@@ -1,2 +1,20 @@
-<h1>Billboards#show</h1>
-<p>Find me in app/views/billboards/show.html.erb</p>
+<%= render "layouts/navbar" %>
+
+<h1> <%= @billboard.name %> </h1>
+
+<%= link_to "Back To Billboards", billboards_path %>
+<%= link_to "Edit", edit_billboard_path(@billboard.id) %>
+<%= link_to "Delete", billboard_path(@billboard.id), method: :delete %>
+
+<hr>
+
+<ul>
+    <% @billboard.songs.each() do |song| %>
+
+        <li> <%= song.name %>  <%= link_to "info", "/songs/#{song.id}" %> </li>
+
+    <% end %>
+</ul>
+
+
+
