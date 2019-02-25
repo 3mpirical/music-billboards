@@ -2,10 +2,10 @@
 
 <h1>Selected Song: <%= @song.name %></h1>
 <h3>By: <%= link_to "#{@artist.name}", artist_path(@artist.id) %> </h3>
-<p>Song Length: <%= @song.length %></p>
 <%= link_to "edit", edit_artist_song_path(@artist.id, @song.id), class: "button" %>
 <%= link_to "delete", artist_song_path(@artist.id, @song.id), method: :delete, class: "button" %>
 <hr>
+<p>Song Length: <%= @song.length %></p>
 <h2>Belongs To Billboards: </h2>
 <ol>
     <% @song.billboards.each() do |billboard| %>
