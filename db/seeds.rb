@@ -12,9 +12,6 @@ Artist.destroy_all()
 
 
 Billboard.create(
-    name: "TOP EXAMPLES"
-)
-Billboard.create(
     name: "TOP 100"
 )
 Billboard.create(
@@ -32,16 +29,31 @@ Billboard.create(
 Billboard.create(
     name: "TOP 50"
 )
+Billboard.create(
+    name: "BOTTOM 100"
+)
+Billboard.create(
+    name: "MOST INCLUSIVE"
+)
+Billboard.create(
+    name: "BIGGEST HITS"
+)
+Billboard.create(
+    name: "FAN FAVORITES"
+)
+Billboard.create(
+    name: "MOST VIEWED"
+)
 
 Artist.create(
     avatar: Faker::Avatar.image(),
-    name: "Betty Fright",
+    name: "Nuns And Roses",
     started: "1945"
 )
 Artist.create(
     avatar: Faker::Avatar.image(),
-    name: "Allen Screamspan",
-    started: "1996"
+    name: "The Beagles",
+    started: "1975"
 )
 Artist.create(
     avatar: Faker::Avatar.image(),
@@ -55,27 +67,47 @@ Artist.create(
 )
 Artist.create(
     avatar: Faker::Avatar.image(),
-    name: "Skrillix",
-    started: "2009"
+    name: "Britney Shears",
+    started: "1995"
 )
 Artist.create(
     avatar: Faker::Avatar.image(),
-    name: "Dahli Llamma",
-    started: "2009"
+    name: "Mariah Scary",
+    started: "1998"
 )
 Artist.create(
     avatar: Faker::Avatar.image(),
-    name: "Lil free",
-    started: "2009"
+    name: "Daft Skunk",
+    started: "1985"
 )
 Artist.create(
     avatar: Faker::Avatar.image(),
     name: "Tyra Spanks",
-    started: "2009"
+    started: "1993"
+)
+Artist.create(
+    avatar: Faker::Avatar.image(),
+    name: "Justin Tinderlake",
+    started: "1997"
+)
+Artist.create(
+    avatar: Faker::Avatar.image(),
+    name: "Ellie Scolding",
+    started: "20010"
+)
+Artist.create(
+    avatar: Faker::Avatar.image(),
+    name: "Demi Tomato",
+    started: "2007"
+)
+Artist.create(
+    avatar: Faker::Avatar.image(),
+    name: "Kanye Zest",
+    started: "1998"
 )
 
 Artist.all().each() {|artist|
-    for i in (1..10)
+    for i in (1..15)
         Song.create(
             name: Faker::Music.album,
             length: "2 mins",
