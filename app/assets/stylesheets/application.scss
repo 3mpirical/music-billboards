@@ -78,7 +78,7 @@ a:hover {
 
 .button {
     display: inline-block;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     margin: 1rem 0;
     background-color: darken(#ECEFF1, 10%);
     border: 0.5px solid #7986CB;
@@ -173,6 +173,8 @@ a:hover {
         margin: 2rem;
         padding-top: 2rem;
         background-color: lighten(#424242, 10%);
+        font-size: 2.3rem;
+        font-family: "Roboto";
     }
 }
 
