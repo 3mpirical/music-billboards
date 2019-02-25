@@ -2,9 +2,9 @@
 
 <h1> <%= @billboard.name %> </h1>
 
-<%= link_to "Back To Billboards", billboards_path %>
-<%= link_to "Edit", edit_billboard_path(@billboard.id) %>
-<%= link_to "Delete", billboard_path(@billboard.id), method: :delete %>
+<%= link_to "Back To Billboards", billboards_path, class: "button" %>
+<%= link_to "Edit", edit_billboard_path(@billboard.id), class: "button" %>
+<%= link_to "Delete", billboard_path(@billboard.id), method: :delete, class: "button" %>
 
 <hr>
 

@@ -1,5 +1,9 @@
 
-<span>Navigation: </span>
-<%= link_to "Artists", artists_path %>
-<%= link_to "Billboards", billboards_path %>
-<hr>
+<div class="navbar" >
+    <div class="navbar__header" ><img src="/assets/music_billboard.svg" alt="music billboard logo"></div>
+
+    <div class="navbar__items">
+    <%= link_to "Artists", artists_path, class: "navbar__link" %>
+    <%= link_to "Billboards", billboards_path, class: "navbar__link" %>
+    </div>
+</div>

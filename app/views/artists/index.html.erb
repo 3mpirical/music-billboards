@@ -1,13 +1,17 @@
 <%= render "layouts/navbar" %>
 
 <h1>Artists On Record</h1>
-<%= link_to "Sign Up An Artist Today", new_artist_path %>
+<%= link_to "Sign Up An Artist Today", new_artist_path, class: "button" %>
 <hr>
 
-<% @artists.each() do |artist| %>
-    <img src="<%= artist.avatar %>" alt="artist picture">
-    <h3><%= artist.name %></h3>
-    <%= link_to "see more", artist_path(artist.id) %>
-    <hr>
 
-<% end %>
+<div class="artists">
+    <% @artists.each() do |artist| %>
+        <div class="artists__card">
+            <img src="<%= artist.avatar %>" alt="artist picture">
+            <h3><%= artist.name %></h3>
+            <%= link_to "see more", artist_path(artist.id) %>
+            <hr>
+        </div>
+    <% end %>
+</div>

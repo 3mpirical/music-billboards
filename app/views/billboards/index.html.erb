@@ -1,13 +1,17 @@
 <%= render "layouts/navbar" %>
 
 <h1>All Billboards</h1>
-<%= link_to "Make Your Own Billboard", new_billboard_path %>
+<%= link_to "Make Your Own Billboard", new_billboard_path, class: "button" %>
 <hr>
 
-<% @billboards.each() do |billboard| %>
-    <h3><%= billboard.name %></h3>
-    <div>
-        <%= link_to "songs", billboard_path(billboard.id) %>
-        <hr>    
-    </div>
-<% end %>
+<div class="billboards">
+    <% @billboards.each() do |billboard| %>
+        <div class="billboards__card">
+            <h3><%= billboard.name %></h3>
+            <div>
+                <%= link_to "songs", billboard_path(billboard.id) %>
+                <hr>    
+            </div>
+        </div>
+    <% end %>
+</div>

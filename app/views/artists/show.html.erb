@@ -3,9 +3,9 @@
 
 <img src="<%= @artist.avatar %>" alt="artist picture">
 <h1>Artist <%= @artist.name %></h1>
-<%= link_to "delete", artist_path(@artist.id), method: :delete %>
-<%= link_to "edit", edit_artist_path(@artist.id) %>
-<%= link_to "add songs", new_artist_song_path(@artist.id) %>
+<%= link_to "delete", artist_path(@artist.id), method: :delete, class: "button" %>
+<%= link_to "edit", edit_artist_path(@artist.id), class: "button" %>
+<%= link_to "add songs", new_artist_song_path(@artist.id), class: "button" %>
 
 <h4>Started: <%= @artist.started %></h4>
 <ul>

@@ -4,7 +4,7 @@
 
 <%= form_tag("/billboards", model: @song, local: true, class: "") do %>
 
-    <div class="field">
+    <div>
         <%= label_tag :name %>
         <%= text_field_tag :name, nil, placeholder: "name", autofocus: true, required: true %>
     </div>
@@ -13,7 +13,7 @@
         <p>Songs: </p>
         <ul>
             <% @songs.each_with_index() do |song, index| %>
-                <li class="field">
+                <li>
                     <%= check_box_tag "song_id[]", "#{song.id}" %> 
                     <%= label_tag "song_id[]", "#{song.name} by: #{song.artist.name}" %>
                 </li>
@@ -21,6 +21,6 @@
         </ul>
     </div>
 
-    <%= submit_tag nil, class: "" %>
+    <%= submit_tag nil, class: "button" %>
 
 <% end %>
