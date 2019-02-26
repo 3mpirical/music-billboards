@@ -7,130 +7,172 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Billboard.destroy_all()
-Artist.destroy_all()
+# Billboard.destroy_all()
+# Artist.destroy_all()
+User.destroy_all()
 
 
-Billboard.create(
-    name: "TOP 100"
+User.create(
+    name: "super",
+    email: "fake@mail",
+    password: "password",
 )
-Billboard.create(
-    name: "TOP 70s"
-)
-Billboard.create(
-    name: "TOP 80s"
-)
-Billboard.create(
-    name: "TOP 90s"
-)
-Billboard.create(
-    name: "TOP 200"
-)
-Billboard.create(
-    name: "TOP 50"
-)
-Billboard.create(
-    name: "BOTTOM 100"
-)
-Billboard.create(
-    name: "MOST INCLUSIVE"
-)
-Billboard.create(
-    name: "BIGGEST HITS"
-)
-Billboard.create(
-    name: "FAN FAVORITES"
-)
-Billboard.create(
-    name: "MOST VIEWED"
+User.create(
+    name: "super2",
+    email: "fake@mail2",
+    password: "password",
 )
 
-Artist.create(
-    avatar: Faker::Avatar.image(),
-    name: "Nuns And Roses",
-    started: "1945"
-)
-Artist.create(
-    avatar: Faker::Avatar.image(),
-    name: "The Beagles",
-    started: "1975"
-)
-Artist.create(
-    avatar: Faker::Avatar.image(),
-    name: "Katy Prairie",
-    started: "2004"
-)
-Artist.create(
-    avatar: Faker::Avatar.image(),
-    name: "Aluminum Zepplin",
-    started: "1965"
-)
-Artist.create(
-    avatar: Faker::Avatar.image(),
-    name: "Britney Shears",
-    started: "1995"
-)
-Artist.create(
-    avatar: Faker::Avatar.image(),
-    name: "Mariah Scary",
-    started: "1998"
-)
-Artist.create(
-    avatar: Faker::Avatar.image(),
-    name: "Daft Skunk",
-    started: "1985"
-)
-Artist.create(
-    avatar: Faker::Avatar.image(),
-    name: "Tyra Spanks",
-    started: "1993"
-)
-Artist.create(
-    avatar: Faker::Avatar.image(),
-    name: "Justin Tinderlake",
-    started: "1997"
-)
-Artist.create(
-    avatar: Faker::Avatar.image(),
-    name: "Ellie Scolding",
-    started: "20010"
-)
-Artist.create(
-    avatar: Faker::Avatar.image(),
-    name: "Demi Tomato",
-    started: "2007"
-)
-Artist.create(
-    avatar: Faker::Avatar.image(),
-    name: "Kanye Zest",
-    started: "1998"
-)
+User.all().each() {|user|
+    
+    Billboard.create(
+        name: "TOP 100",
+        user_id: user.id
+    )
 
-Artist.all().each() {|artist|
-    for i in (1..15)
-        Song.create(
-            name: Faker::Music.album,
-            length: "2 mins",
-            artist_id: artist.id
-        )
-    end
-}
-
-Billboard.all().each() {|billboard|
-    Song.all().each() { |song|
-        if(Random.rand(4).to_i == 0)
-            SongSlot.create(
-                billboard_id: billboard.id,
-                song_id: song.id,
+    Billboard.create(
+        name: "TOP 70s",
+        user_id: user.id
+    )
+    Billboard.create(
+        name: "TOP 80s",
+        user_id: user.id
+    )
+    Billboard.create(
+        name: "TOP 90s",
+        user_id: user.id
+    )
+    Billboard.create(
+        name: "TOP 200",
+        user_id: user.id
+    )
+    Billboard.create(
+        name: "TOP 50",
+        user_id: user.id
+    )
+    Billboard.create(
+        name: "BOTTOM 100",
+        user_id: user.id
+    )
+    Billboard.create(
+        name: "MOST INCLUSIVE",
+        user_id: user.id
+    )
+    Billboard.create(
+        name: "BIGGEST HITS",
+        user_id: user.id
+    )
+    Billboard.create(
+        name: "FAN FAVORITES",
+        user_id: user.id
+    )
+    Billboard.create(
+        name: "MOST VIEWED",
+        user_id: user.id
+    )
+    
+    Artist.create(
+        avatar: Faker::Avatar.image(),
+        name: "Nuns And Roses",
+        started: "1945",
+        user_id: user.id
+    )
+    Artist.create(
+        avatar: Faker::Avatar.image(),
+        name: "The Beagles",
+        started: "1975",
+        user_id: user.id
+    )
+    Artist.create(
+        avatar: Faker::Avatar.image(),
+        name: "Katy Prairie",
+        started: "2004",
+        user_id: user.id
+    )
+    Artist.create(
+        avatar: Faker::Avatar.image(),
+        name: "Aluminum Zepplin",
+        started: "1965",
+        user_id: user.id
+    )
+    Artist.create(
+        avatar: Faker::Avatar.image(),
+        name: "Britney Shears",
+        started: "1995",
+        user_id: user.id
+    )
+    Artist.create(
+        avatar: Faker::Avatar.image(),
+        name: "Mariah Scary",
+        started: "1998",
+        user_id: user.id
+    )
+    Artist.create(
+        avatar: Faker::Avatar.image(),
+        name: "Daft Skunk",
+        started: "1985",
+        user_id: user.id
+    )
+    Artist.create(
+        avatar: Faker::Avatar.image(),
+        name: "Tyra Spanks",
+        started: "1993",
+        user_id: user.id
+    )
+    Artist.create(
+        avatar: Faker::Avatar.image(),
+        name: "Justin Tinderlake",
+        started: "1997",
+        user_id: user.id
+    )
+    Artist.create(
+        avatar: Faker::Avatar.image(),
+        name: "Ellie Scolding",
+        started: "20010",
+        user_id: user.id
+    )
+    Artist.create(
+        avatar: Faker::Avatar.image(),
+        name: "Demi Tomato",
+        started: "2007",
+        user_id: user.id
+    )
+    Artist.create(
+        avatar: Faker::Avatar.image(),
+        name: "Kanye Zest",
+        started: "1998",
+        user_id: user.id
+    )
+    
+    user.artists.all().each() {|artist|
+        for i in (1..15)
+            Song.create(
+                name: Faker::Music.album,
+                length: "2 mins",
+                artist_id: artist.id
             )
         end
     }
+    
+    user.billboards.all().each() {|billboard|
+        user.songs.all().each() { |song|
+            if(Random.rand(4).to_i == 0)
+                SongSlot.create(
+                    billboard_id: billboard.id,
+                    song_id: song.id,
+                )
+            end
+        }
+    }
+    
 }
 
-Billboard.all().each() { |billboard|
-    puts billboard.name + "-----------"
-    billboard.songs.each() {|song|
-        puts song.name
-    }
-}
+
+#### Prints All Songs On All Billboards (a lot of data) ####
+# Billboard.all().each() { |billboard|
+#     puts billboard.name + "-----------"
+#     billboard.songs.each() {|song|
+#         puts song.name
+#     }
+# }
 

@@ -7,7 +7,7 @@ class SongsController < ApplicationController
     end
 
     def new
-        @billboards = Billboard.all()
+        @billboards = current_user.billboards.all()
         @song = Song.new
     end
 
@@ -15,6 +15,8 @@ class SongsController < ApplicationController
     end
 
     def create
+        # Initially wrote current_user.songs.create(), but got ERROR
+        # "Cannot modify association 'User#songs' because it goes through more than one other association"
         result = Song.create(
             artist_id: @artist.id,
             name: song_params[:name],
@@ -52,10 +54,10 @@ class SongsController < ApplicationController
         end
 
         def get_song
-            return @song = Song.find(params[:id])
+            return @song = current_user.songs.find(params[:id])
         end
 
         def get_artist
-            return @artist = Artist.find(params[:artist_id])
+            return @artist = current_user.artists.find(params[:artist_id])
         end
 end

@@ -54,7 +54,7 @@ ol li {
 
 .field {
     margin: 2rem auto;
-    width: 30rem;
+    width: 32rem;
     text-align: right;
     font-size: 2rem;
 
@@ -62,6 +62,9 @@ ol li {
         font-size: 2rem;
     }
 }
+
+
+
 
 
 
@@ -80,7 +83,7 @@ a:hover {
     display: inline-block;
     padding: 0.5rem 1rem;
     margin: 1rem 0;
-    background-color: darken(#ECEFF1, 10%);
+    background-color:#ECEFF1;
     border: 0.5px solid #7986CB;
     border-radius: 4px;
     box-shadow: 1px 3px 1px rgba(0,0,0,0.3);

@@ -22,6 +22,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'semantic-ui-sass'
 
+gem "devise"
+
 group :development, :test do
   gem "pry"
   gem "rb-readline"

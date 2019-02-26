@@ -2,22 +2,22 @@ class BillboardsController < ApplicationController
   before_action :get_billboard, only: [:show, :edit, :destroy]
 
   def index
-    @billboards = Billboard.all()
+    @billboards = current_user.billboards.all()
   end
 
   def show
   end
 
   def edit
-    @songs = Song.all()
+    @songs = current_user.songs.all()
   end
 
   def new
-    @songs = Song.all()
+    @songs = current_user.songs.all()
   end
 
   def create
-    billboard = Billboard.create(name: params[:name])
+    billboard = current_user.billboards.create(name: params[:name])
 
     if(billboard)
       update_songs_on_board(billboard)
@@ -45,7 +45,7 @@ class BillboardsController < ApplicationController
 
   private
     def get_billboard
-      return @billboard = Billboard.find(params[:id])
+      return @billboard = current_user.billboards.find(params[:id])
     end
 
     def update_songs_on_board(billboard)

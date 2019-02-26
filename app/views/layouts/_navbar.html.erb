@@ -3,8 +3,14 @@
     <div class="navbar__header" ><img src="/assets/music_billboard.svg" alt="music billboard logo"></div>
 
     <div class="navbar__items">
-    <%= link_to "Artists", artists_path, class: "navbar__link" %>
-    <%= link_to "Billboards", billboards_path, class: "navbar__link" %>
+    <% if(!user_signed_in?) %>
+        <%= link_to "Sign Up", "/users/sign_up" , class: "navbar__link login" %>
+        <%= link_to "Login", "/users/sign_in" , class: "navbar__link login" %>
+    <% else %>
+        <%= link_to "Artists", artists_path, class: "navbar__link" %>
+        <%= link_to "Billboards", billboards_path, class: "navbar__link" %>
+        <%= link_to "Logout", "/users/sign_out", method: :delete, class: "navbar__link" %>
+    <% end %>
     </div>
 </div>
 
